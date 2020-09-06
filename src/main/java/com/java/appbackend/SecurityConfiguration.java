@@ -1,4 +1,4 @@
-package com.java.appbackend.Config;
+package com.java.appbackend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,7 +28,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll().and().authorizeRequests()
                 .antMatchers("/resources/**", "/registration").permitAll()
+                .antMatchers("/forgotPassword").permitAll()
+                .antMatchers("/resetPassword").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -37,6 +40,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .permitAll();
+        
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Bean

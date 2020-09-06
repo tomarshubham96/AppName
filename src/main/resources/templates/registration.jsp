@@ -10,8 +10,8 @@ xmlns:th="http://www.thymeleaf.org">
       <meta charset="utf-8">
       <title>Create an account</title>
 
-      <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-      <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+      <link href="${contextPath}/css/bootstrap.min.css" rel="stylesheet">
+      <link href="${contextPath}/css/common.css" rel="stylesheet">
   </head>
 
   <body>
@@ -25,30 +25,6 @@ xmlns:th="http://www.thymeleaf.org">
                     <form:input type="text" path="username" class="form-control" placeholder="Username"
                                 autofocus="true"></form:input>
                     <form:errors path="username"></form:errors>
-                </div>
-            </spring:bind>
-            
-            <spring:bind path="firstName">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
-                                autofocus="true"></form:input>
-                    <form:errors path="firstName"></form:errors>
-                </div>
-            </spring:bind>
-            
-            <spring:bind path="lastName">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
-                                autofocus="true"></form:input>
-                    <form:errors path="lastName"></form:errors>
-                </div>
-            </spring:bind>
-            
-            <spring:bind path="email">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="email" class="form-control" placeholder="E-Mail"
-                                autofocus="true"></form:input>
-                    <form:errors path="email"></form:errors>
                 </div>
             </spring:bind>
 

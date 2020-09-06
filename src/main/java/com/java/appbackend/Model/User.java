@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -15,7 +16,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="username")
+    @Column(name="username", unique = true)
     private String username; 
     
     @Column(name = "first_name")
@@ -24,16 +25,20 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Column(name = "email", nullable = false, unique = true)
+	@Column(name = "email", unique = true)
 	private String email;
 	
 	@Column(name = "password")
-	@Transient
 	private String password;
 	
 	@Column(name = "passwordConfirm")
 	@Transient
     private String passwordConfirm;
+	
+	private String token;
+	
+	@Column(columnDefinition = "TIMESTAMP")	
+	private LocalDateTime tokenCreationDate;
 
     @ManyToMany
     private Set<Role> roles;  
