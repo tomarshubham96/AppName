@@ -4,12 +4,14 @@ import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.java.appbackend.Model.User;
 import com.java.appbackend.Repository.RoleRepository;
 import com.java.appbackend.Repository.UserRepository;
 import com.java.appbackend.Repository.UserServiceRepository;
 
+@Service
 public class UserServiceImpl implements UserServiceRepository {
 
 	@Autowired

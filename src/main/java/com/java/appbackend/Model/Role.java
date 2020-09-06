@@ -17,6 +17,6 @@ public class Role {
     @Column(name="roleDesc")
     private String roleDesc;
 
-    @ManyToMany(mappedBy = "user_roles")
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;    
 }
